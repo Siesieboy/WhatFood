@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weekplanner - Wat eten we vandaag?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="kicker">Weekplanner</p>
+        <h1 class="title">Sleep gerechten naar je dagen.</h1>
+        <p class="subtitle">Genereer een week, sleep de kaarten, en de boodschappenlijst volgt.</p>
+      </section>
+
+      <section class="card planner">
+        <div class="planner-header">
+          <div>
+            <h2>Jouw week</h2>
+            <p>Sleep een gerecht naar een dag om hem vast te zetten.</p>
+          </div>
+          <div class="planner-actions">
+            <button id="regenerate" class="primary">Nieuwe week</button>
+            <button id="back" class="ghost">Terug</button>
+          </div>
+        </div>
+        <div class="planner-grid">
+          <div class="pool">
+            <div class="pool-header">
+              <h3>Gerechten</h3>
+              <span id="poolCount" class="pool-count">0 over</span>
+            </div>
+            <div id="poolList" class="pool-list" aria-live="polite"></div>
+          </div>
+          <div class="days">
+            <h3>Dagen</h3>
+            <ul id="weekList" class="week-list"></ul>
+          </div>
+          <div class="shopping">
+            <h3>Boodschappenlijst</h3>
+            <ul id="shopList" class="shop-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="planner.js"></script>
+  </body>
+</html>

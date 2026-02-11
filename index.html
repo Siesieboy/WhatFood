@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="WhatFoodFavicon.png">
+    <title>Wat eten we vandaag? Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="kicker">Wat eten we vandaag?</p>
+        <h1 class="title">Laat de generator het beslissen.</h1>
+        <p class="subtitle">Snel kiezen, zonder keuzestress. Stel je smaak in en draai.</p>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <div class="result">
+          <div class="result-label">Jullie eten:</div>
+          <div id="dish" class="result-dish">Klik op “Draai”.</div>
+          <div id="tags" class="result-tags" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
+          <button id="spin" class="primary">Draai</button>
+          <button id="save" class="ghost">Bewaar</button>
+          <button id="reroll" class="ghost">Opnieuw</button>
+          <button id="addToWeek" class="ghost" disabled>Voeg toe aan weekplanning</button>
+          <button id="week" class="ghost">Weekplanner</button>
+        </div>
+
+        <div class="filters">
+          <div class="filter-group">
+            <label for="diet">Dieet</label>
+            <select id="diet">
+              <option value="all">Alles</option>
+              <option value="veg">Vegetarisch</option>
+              <option value="vegan">Vegan</option>
+              <option value="pesc">Pescatarisch</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="time">Tijd</label>
+            <select id="time">
+              <option value="all">Alles</option>
+              <option value="quick">Snel (≤ 20 min)</option>
+              <option value="mid">Middel (20-40 min)</option>
+              <option value="slow">Uitgebreid (40+ min)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="mood">Mood</label>
+            <select id="mood">
+              <option value="all">Alles</option>
+              <option value="comfort">Comfort</option>
+              <option value="fresh">Fris</option>
+              <option value="spicy">Pittig</option>
+              <option value="protein">Eiwit</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="style">Keuken</label>
+            <select id="style">
+              <option value="all">Alles</option>
+              <option value="med">Mediterraan</option>
+              <option value="asian">Aziatisch</option>
+              <option value="nl">Nederlands</option>
+              <option value="latam">Latijns</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="saved">
+        <div class="saved-header">
+          <h2>Opgeslagen ideeën</h2>
+          <button id="clear" class="ghost small">Leeg</button>
+        </div>
+        <ul id="savedList" class="saved-list"></ul>
+      </section>
+    </main>
+
+    <div id="weekModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="weekTitle">
+        <h3 id="weekTitle">Voeg toe aan weekplanning</h3>
+        <p id="weekDish" class="modal-subtitle"></p>
+        <label for="weekDay">Kies een dag</label>
+        <select id="weekDay" class="modal-select"></select>
+        <div class="modal-actions">
+          <button id="confirmWeek" class="primary">Toevoegen</button>
+          <button id="cancelWeek" class="ghost">Annuleer</button>
+        </div>
+        <div id="weekStatus" class="modal-status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
